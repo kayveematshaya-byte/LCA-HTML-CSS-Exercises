@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Example</title>
+</head>
+<body>
+
+    <!-- 1 & 2: Main Form (POST method) -->
+    <h2>Registration Form</h2>
+    <form method="POST" action="YOUR_POST_URL_HERE">
+
+        <label>First Name:</label><br>
+        <input type="text" name="first_name" required><br><br>
+
+        <label>Last Name:</label><br>
+        <input type="text" name="last_name" required><br><br>
+
+        <label>Gender:</label><br>
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female<br><br>
+
+        <label>Date of Birth:</label><br>
+        <input type="date" name="date_of_birth" required><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <hr>
+
+    <!-- 3: Search Form (GET method) -->
+    <h2>Search</h2>
+    <form method="GET" action="YOUR_GET_URL_HERE">
+        <input type="text" name="search_name" placeholder="Search..." required>
+        <button type="submit">Search</button>
+    </form>
+
+</body>
+</html>
