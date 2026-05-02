@@ -1,0 +1,57 @@
+/* My Tech Blog Styles */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+nav {
+    background-color: #333;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 2rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #00bcd4;
+}
+
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.blog-post {
+    background-color: white;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post h2 {
+    color: #00bcd4;
+    margin-top: 0;
+}
+
+.blog-post p {
+    color: #666;
+    line-height: 1.8;
+}
