@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="week5_ex02_style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Image Gallery</h1>
+        
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="landscape">Landscapes</button>
+            <button class="filter-btn" data-filter="portrait">Portraits</button>
+            <button class="filter-btn" data-filter="architecture">Architecture</button>
+        </div>
+
+        <div class="gallery-grid" id="gallery">
+            <!-- 12 images will be inserted via JS -->
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            { src: "https://picsum.photos/id/104/400/300", title: "Mountain Lake", category: "landscape", desc: "Peaceful mountain landscape with crystal clear waters" },
+            { src: "https://picsum.photos/id/15/400/300", title: "Forest Path", category: "landscape", desc: "Mysterious forest trail covered in autumn leaves" },
+            { src: "https://picsum.photos/id/96/400/300", title: "Mountain Peak", category: "landscape", desc: "Snow-capped peaks under dramatic clouds" },
+            { src: "https://picsum.photos/id/29/400/300", title: "Coastal View", category: "landscape", desc: "Dramatic coastline with crashing waves" },
+            { src: "https://picsum.photos/id/26/400/300", title: "Woman Portrait", category: "portrait", desc: "Elegant portrait with soft natural lighting" },
+            { src: "https://picsum.photos/id/64/400/300", title: "Man in Field", category: "portrait", desc: "Thoughtful gaze across golden wheat fields" },
+            { src: "https://picsum.photos/id/30/400/300", title: "Coffee Moment", category: "portrait", desc: "Candid morning coffee ritual" },
+            { src: "https://picsum.photos/id/91/400/300", title: "Studio Portrait", category: "portrait", desc: "Dramatic black and white studio lighting" },
+            { src: "https://picsum.photos/id/106/400/300", title: "Modern Building", category: "architecture", desc: "Sleek glass facade reflecting blue sky" },
+            { src: "https://picsum.photos/id/95/400/300", title: "Old Bridge", category: "architecture", desc: "Historic stone bridge over river" },
+            { src: "https://picsum.photos/id/112/400/300", title: "Urban Structure", category: "architecture", desc: "Geometric patterns of urban architecture" },
+            { src: "https://picsum.photos/id/39/400/300", title: "Church Interior", category: "architecture", desc: "Soaring arches and stained glass windows" }
+        ];
+
+        const gallery = document.getElementById('gallery');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        let currentFilter = 'all';
+
+        function renderGallery() {
+            const filtered = currentFilter === 'all' 
+                ? images 
+                : images.filter(img => img.category === currentFilter);
+            
+            gallery.innerHTML = filtered.map(img => `
+                <div class="card" data-category="${img.category}">
+                    <div class="card-inner">
+                        <img src="${img.src}" alt="${img.title}" loading="lazy">
+                        <div class="overlay">
+                            <p>${img.desc}</p>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3>${img.title}</h3>
+                        <span class="category-tag">${img.category}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.filter;
+                renderGallery();
+            });
+        });
+
+        renderGallery();
+    </script>
+</body>
+</html>
