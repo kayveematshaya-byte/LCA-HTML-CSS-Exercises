@@ -1,0 +1,361 @@
+/* ===============================
+   GLOBAL STYLES & RESET
+   =============================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F9F9FB;
+    color: #1E2A3E;
+    line-height: 1.6;
+}
+
+/* ===============================
+   COLOR PALETTE (4 colors)
+   Primary: #1E2A3E (dark navy)
+   Secondary: #3A6B4F (sage green)
+   Accent: #D9A13B (mustard)
+   Neutral: #F4F4F6 (light gray)
+   =============================== */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===============================
+   TYPOGRAPHY (Google Font)
+   =============================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap');
+
+h1, h2, h3 {
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #1E2A3E;
+    border-left: 4px solid #D9A13B;
+    padding-left: 1rem;
+}
+
+/* ===============================
+   LAYOUT: CSS GRID (Overall Page)
+   =============================== */
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+/* ===============================
+   NAVBAR: FLEXBOX
+   =============================== */
+nav {
+    background-color: #1E2A3E;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: #F4F4F6;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #D9A13B;
+}
+
+/* ===============================
+   HERO SECTION (Gradient + Centered)
+   =============================== */
+.hero {
+    background: linear-gradient(135deg, #1E2A3E 0%, #3A6B4F 100%);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    background-color: #D9A13B;
+    color: #1E2A3E;
+    padding: 0.75rem 1.8rem;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #c28c2e;
+    transform: scale(1.05);
+}
+
+/* ===============================
+   ABOUT SECTION
+   =============================== */
+.about {
+    padding: 4rem 0;
+    background-color: white;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.profile-img {
+    width: 100%;
+    max-width: 280px;
+    border-radius: 50%;
+    justify-self: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.bio p {
+    margin-bottom: 1rem;
+}
+
+/* ===============================
+   SKILLS SECTION: FLEXBOX
+   =============================== */
+.skills {
+    background-color: #F4F4F6;
+    padding: 4rem 0;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.skill-card {
+    background: white;
+    padding: 1rem 2rem;
+    border-radius: 40px;
+    font-weight: 600;
+    color: #1E2A3E;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    background-color: #D9A13B;
+    color: #1E2A3E;
+}
+
+/* ===============================
+   PROJECTS SECTION: CSS GRID
+   =============================== */
+.projects {
+    padding: 4rem 0;
+    background-color: white;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 30px -10px rgba(0,0,0,0.2);
+}
+
+.project-card h3 {
+    color: #3A6B4F;
+    margin-bottom: 0.8rem;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #D9A13B;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.project-link:hover {
+    color: #1E2A3E;
+}
+
+/* ===============================
+   CONTACT FORM SECTION
+   =============================== */
+.contact {
+    background-color: #F4F4F6;
+    padding: 4rem 0;
+}
+
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+    color: #1E2A3E;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #D9A13B;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* ===============================
+   FOOTER
+   =============================== */
+footer {
+    background-color: #1E2A3E;
+    color: #F4F4F6;
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+/* ===============================
+   RESPONSIVE DESIGN (3 Media Queries)
+   =============================== */
+
+/* Tablet: max-width 768px (two-column layout) */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .profile-img {
+        margin-bottom: 1rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile: max-width 480px (single column) */
+@media (max-width: 480px) {
+    .nav-links {
+        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero {
+        min-height: 70vh;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .skills-list {
+        gap: 0.8rem;
+    }
+    
+    .skill-card {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .contact form {
+        padding: 1.2rem;
+    }
+}
+
+/* Large Desktop (min-width 1024px) - already multi-column by default */
+@media (min-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .hero-content h1 {
+        font-size: 3.8rem;
+    }
+}
